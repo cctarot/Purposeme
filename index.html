@@ -276,7 +276,7 @@
     margin-bottom: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 20px 60px rgba(160,120,190,0.25), inset 0 1px 0 rgba(255,255,255,0.7);
-    line-height: 1.9; font-size: 15px; color: var(--ink);
+    line-height: 1.9; font-size: 15px; color: #2b2540;
     position: relative; overflow: hidden;
   }
   .answer-card::before {
@@ -291,7 +291,7 @@
   .answer-card h3 {
     font-family: 'Noto Serif TC', serif;
     font-size: 16px; font-weight: 700;
-    color: var(--amber); margin: 24px 0 12px;
+    color: #5a3b86; margin: 24px 0 12px;
     display: flex; align-items: center; gap: 8px;
   }
   .answer-card h3::before {
@@ -307,7 +307,7 @@
   }
   .answer-card li {
     padding-left: 20px; position: relative;
-    color: var(--ink);
+    color: #2b2540;
   }
   .answer-card li::before {
     content: '◆';
@@ -406,25 +406,45 @@
     text-align: center; padding: 20px 0 50px;
   }
   .reviews-scroll {
-    display: flex; gap: 16px;
-    overflow-x: auto; scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 8px 24px 20px;
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: 300px !important;
+    grid-template-rows: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-x: contain !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 8px 24px 20px !important;
     scrollbar-width: none;
   }
   .reviews-scroll::-webkit-scrollbar { display: none; }
-  .review-card {
-    flex: 0 0 auto;
-    scroll-snap-align: center;
-    width: min(78vw, 300px);
+  .reviews-scroll > .review-card {
+    display: block !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    width: 300px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    scroll-snap-align: start;
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid rgba(240,182,74,0.35);
     box-shadow: 0 10px 30px rgba(60,20,60,0.35);
     background: rgba(255,255,255,0.03);
   }
-  .review-card img {
-    width: 100%; height: auto; display: block;
+  .reviews-scroll > .review-card > img {
+    display: block !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   .reviews-hint {
     font-size: 12px; color: var(--ink-soft);
